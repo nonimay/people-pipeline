@@ -1,0 +1,31 @@
+require 'rails_helper'
+
+RSpec.describe "candidates/index", type: :view do
+  before(:each) do
+    assign(:candidates, [
+      Candidate.create!(
+        :first_name => "First Name",
+        :last_name => "Last Name",
+        :email => "Email",
+        :phone => "Phone",
+        :geo_location => "Geo Location"
+      ),
+      Candidate.create!(
+        :first_name => "First Name",
+        :last_name => "Last Name",
+        :email => "Email",
+        :phone => "Phone",
+        :geo_location => "Geo Location"
+      )
+    ])
+  end
+
+  it "renders a list of candidates" do
+    render
+    assert_select "tr>td", :text => "First Name".to_s, :count => 2
+    assert_select "tr>td", :text => "Last Name".to_s, :count => 2
+    assert_select "tr>td", :text => "Email".to_s, :count => 2
+    assert_select "tr>td", :text => "Phone".to_s, :count => 2
+    assert_select "tr>td", :text => "Geo Location".to_s, :count => 2
+  end
+end

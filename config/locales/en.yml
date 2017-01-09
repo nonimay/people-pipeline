@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      candidtate:
+        geo_location: "Geographic Location"
+        phone: "Telephone Number"
