@@ -1,3 +1,9 @@
 language: ruby
 rvm:
- - 2.3.3
+- 2.3.3
+
+deploy:
+  provider: heroku
+  app: whispering-earth-82550
+  api_key:
+    secure: J0KMTZsv0XrZK2071fBZfjWifGw/8avG6dQGLg1/cYGki5ngTiLbVnFCtjR5yRlqeA29BgO/Tgwa7lC41ogq1kefsnT8H0yhBkjEa4xRh+NPyvxSRaAbRibZX9n/k3TeMBVl3JX8Oj/Sdci4+5cfmkpN+zOxHOXL17LDggLYolJp2hJwhtnZ8BVgsQ3uBvcwEgS1PlgtIODx+HFjq6fT23cr4Jj8PN3ZkwTVSmDsn9QaMOUQfW4EbWJNhaRNzIsekpfGr+LzJI+sd7Alz8FiLSdxa57wxLA6s0409VQMhctfI6zh619cR5vXBTrCV8Le6ojLoNmIqV6pUN4pMu4v6X8J+MaEwdVBoIK3jD9xQXlwGW0GtICDl1mpDPII5jR1ToXMEBXgcjdg7WujFWwoYNykh+Z7A4/Z9Egt9UghEPKJurBSpxxBHQhmZa/cxrum40rRLTi9n9KTAdElVPy69qDcIQ+Nrjz0Q+OuCnWO3IqEgGcijRtKqDNb0gYnxuJ8qjFDvGLp+v8yLI9DagLYqIROnMNd3tx8dlSx7zXVWmkSYEDvV4DQoMWtCDTSGyPTloN7t6iMpBovk101mEwmY0WKqPYV/e6hE+6qUX6oRYTD8G4NBN5U6fOBvNN1QGXDMkoc0eP2EnN9frvWwDV53RzYF7CObk8Q320DhTVbVDc=
