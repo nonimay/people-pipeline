@@ -120,7 +120,7 @@ RSpec.describe CandidatesController, type: :controller do
         candidate = Candidate.create! valid_attributes
         put :update, params: {id: candidate.to_param, candidate: new_attributes}, session: valid_session
         candidate.reload
-        expect(candidate.geo_location).to eq("Sunderland")
+        expect(candidate.geo_location).to eq("xSunderland")
       end
 
       it "assigns the requested candidate as @candidate" do
