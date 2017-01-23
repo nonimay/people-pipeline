@@ -28,6 +28,12 @@ RSpec.describe User, type: :model do
       duplicate_user.email = duplicate_user.email.upcase
       expect(duplicate_user).to be_invalid
     end
+
+    it 'should always save emails as downcase' do
+      user2 = User.new(name: 'Jane Smith', email: 'Jane.Smith@test.com')
+      user2.save
+      expect(user2.email).to eq('jane.smith@test.com')
+    end
   end
 
 end
