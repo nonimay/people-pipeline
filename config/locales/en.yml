@@ -20,10 +20,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-
-  activerecord:
-    attributes:
-      candidtate:
-        geo_location: "Geographic Location"
-        phone: "Telephone Number"
+  invalid_credentials: 'Invalid email and/or password entered - please try again'
