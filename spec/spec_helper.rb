@@ -17,9 +17,9 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'simplecov'
-SimpleCov.minimum_coverage 95
-SimpleCov.start 'rails'
+require 'coveralls'
+Coveralls.wear!
+SimpleCov.minimum_coverage 100
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
