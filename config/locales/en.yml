@@ -21,3 +21,10 @@
 
 en:
   invalid_credentials: 'Invalid email and/or password entered - please try again'
+
+  activerecord:
+    models:
+      candidate: Person
+    attributes:
+      candidate:
+        geo_location: Geographic Location
