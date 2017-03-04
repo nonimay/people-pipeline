@@ -25,8 +25,7 @@ RSpec.describe CandidatesController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
-      first_name: "John",
-      last_name: "Smith",
+      name: "John Smith",
       email: "john.smith@test.com",
       phone: "07123456789",
       geo_location: "Newcastle",
@@ -35,8 +34,7 @@ RSpec.describe CandidatesController, type: :controller do
 
   let(:invalid_attributes) {
     {
-      first_name: "John",
-      last_name: "Smith",
+      name: "John Smith",
       email: "john.smith@test.com",
       phone: ""
     }
