@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe CandidatesController, type: :controller do
 
   before(:all) do
-    Education.create!(level: "Bachelors Degree")
+    Education.create!(level: 1, qualification: "Bachelors Degree")
   end
 
   let(:valid_attributes) {

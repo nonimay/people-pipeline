@@ -1,9 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
+#create default user
 User.create(name: "Fiona Hobbs", email: "fionamayhobbs@gmail.com", password: "password123", password_confirmation: "password123")
+
+#education levels
+Education.create(level: 1, qualification: "Doctoral degree")
+Education.create(level: 2, qualification: "Master's degree")
+Education.create(level: 3, qualification: "Bachelor's degree with honours")
+Education.create(level: 4, qualification: "Non-honours bachelor's degree")
+Education.create(level: 5, qualification: "HNC / HND")
+Education.create(level: 6, qualification: "GCSE (A-level)")
+Education.create(level: 7, qualification: "GCSE (grades A*–C)")
+Education.create(level: 8, qualification: "GCSE (grades D-G)")
