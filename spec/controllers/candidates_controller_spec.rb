@@ -57,12 +57,12 @@ RSpec.describe CandidatesController, type: :controller do
 
     context 'with invalid params' do
       it 'assigns a newly created but unsaved candidate as @candidate' do
-        post :create, params: { candidate: @candidate.attributes.merge("name" => '') }, session: valid_session
+        post :create, params: { candidate: @candidate.attributes.merge('name' => '') }, session: valid_session
         expect(assigns(:candidate)).to be_a_new(Candidate)
       end
 
       it "re-renders the 'new' template" do
-        post :create, params: { candidate: @candidate.attributes.merge("name" => '') }, session: valid_session
+        post :create, params: { candidate: @candidate.attributes.merge('name' => '') }, session: valid_session
         expect(response).to render_template('new')
       end
     end
@@ -95,12 +95,12 @@ RSpec.describe CandidatesController, type: :controller do
 
     context 'with invalid params' do
       it 'assigns the candidate as @candidate' do
-        put :update, params: { id: @candidate.to_param, candidate: @candidate.attributes.merge("name" => '') }, session: valid_session
+        put :update, params: { id: @candidate.to_param, candidate: @candidate.attributes.merge('name' => '') }, session: valid_session
         expect(assigns(:candidate)).to eq(@candidate)
       end
 
       it "re-renders the 'edit' template" do
-        put :update, params: { id: @candidate.to_param, candidate: @candidate.attributes.merge("name" => '') }, session: valid_session
+        put :update, params: { id: @candidate.to_param, candidate: @candidate.attributes.merge('name' => '') }, session: valid_session
         expect(response).to render_template('edit')
       end
     end
