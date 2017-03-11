@@ -3,25 +3,24 @@ require 'rails_helper'
 RSpec.describe CandidatesController, type: :controller do
 
   before(:all) do
-    Education.create!(level: 1, qualification: "Bachelors Degree")
+    @candidate = create(:candidate)
   end
 
   let(:valid_attributes) {
     {
-      name: "John Smith",
-      email: "john.smith@test.com",
-      phone: "07123456789",
-      geo_location: "Newcastle",
-      education_id: 1
+      name: @candidate.name,
+      geo_location: @candidate.geo_location,
+      education_id: @candidate.education_id,
+      contact_id: @candidate.contact_id
     }
   }
 
   let(:invalid_attributes) {
     {
-      name: "John Smith",
-      email: "john.smith@test.com",
-      phone: "",
-      education_id: 1
+      name: "",
+      geo_location: @candidate.geo_location,
+      education_id: @candidate.education_id,
+      contact_id: @candidate.contact_id
     }
   }
 
@@ -29,17 +28,15 @@ RSpec.describe CandidatesController, type: :controller do
 
   describe "GET #index" do
     it "assigns all candidates as @candidates" do
-      candidate = Candidate.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(assigns(:candidates)).to eq([candidate])
+      expect(assigns(:candidates)).to eq([@candidate])
     end
   end
 
   describe "GET #show" do
     it "assigns the requested candidate as @candidate" do
-      candidate = Candidate.create! valid_attributes
-      get :show, params: {id: candidate.to_param}, session: valid_session
-      expect(assigns(:candidate)).to eq(candidate)
+      get :show, params: {id: @candidate.to_param}, session: valid_session
+      expect(assigns(:candidate)).to eq(@candidate)
     end
   end
 
@@ -52,9 +49,8 @@ RSpec.describe CandidatesController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested candidate as @candidate" do
-      candidate = Candidate.create! valid_attributes
-      get :edit, params: {id: candidate.to_param}, session: valid_session
-      expect(assigns(:candidate)).to eq(candidate)
+      get :edit, params: {id: @candidate.to_param}, session: valid_session
+      expect(assigns(:candidate)).to eq(@candidate)
     end
   end
 
@@ -62,7 +58,7 @@ RSpec.describe CandidatesController, type: :controller do
     context "with valid params" do
       it "creates a new Candidate" do
         expect {
-          post :create, params: {candidate: valid_attributes}, session: valid_session
+          post :create, params: { candidate: valid_attributes }, session: valid_session
         }.to change(Candidate, :count).by(1)
       end
 

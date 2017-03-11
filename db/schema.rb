@@ -10,17 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306154506) do
+ActiveRecord::Schema.define(version: 20170311144503) do
 
   create_table "candidates", force: :cascade do |t|
     t.string   "name"
-    t.string   "email"
-    t.string   "phone"
     t.string   "geo_location"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "education_id"
+    t.integer  "contact_id"
+    t.index ["contact_id"], name: "index_candidates_on_contact_id"
     t.index ["education_id"], name: "index_candidates_on_education_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "telephone"
+    t.string   "email"
+    t.string   "street"
+    t.string   "city"
+    t.string   "county"
+    t.string   "country"
+    t.string   "postcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "educations", force: :cascade do |t|
