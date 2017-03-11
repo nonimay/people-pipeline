@@ -1,41 +1,73 @@
 <%= form_for candidate, :html => { :class => "form-horizontal"} do |f| %>
-  <% if candidate.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+<% if candidate.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(candidate.errors.count, "error") %>
+        prohibited this candidate from being saved:</h2>
 
-      <ul>
+    <ul>
         <% candidate.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
+    </ul>
+</div>
+<% end %>
+
+<div class="col-md-4">
+
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :first_name, class: "control-label" %>
-    <%= f.text_field :first_name, class: "form-control" %>
-  </div>
+    <div class="form-group">
+        <%= f.label :geo_location %>
+        <%= f.text_field :geo_location, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :last_name, class: "control-label" %>
-    <%= f.text_field :last_name, class: "form-control" %>
-  </div>
+    <div class="form-group">
+        <%= f.label :github %>
+        <%= f.text_field :github, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :email, class: "control-label" %>
-    <%= f.text_field :email, class: "form-control" %>
-  </div>
+    <div class="form-group">
+        <%= f.label :linkedin %>
+        <%= f.text_field :linkedin, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :phone, class: "control-label" %>
-    <%= f.text_field :phone, class: "form-control" %>
-  </div>
+    <div class="form-group">
+        <%= f.label :education_id %>
+        <%= f.collection_select(:education_id, Education.all, :id, :qualification, {}, { class: "form-control" }) %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :geo_location, class: "control-label" %>
-    <%= f.text_field :geo_location, class: "form-control" %>
-  </div>
+</div>
 
-  <%= f.submit class: "btn btn-default btn-primary"%>
+<div class="col-md-4 col-md-offset-2">
+
+    <%= f.fields_for :address do |a| %>
+
+    <div class="form-group">
+        <%= a.label :telephone %>
+        <%= a.text_field :telephone, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= a.label :email %>
+        <%= a.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :address %>
+        <%= a.text_field :street, class: "form-control" %>
+        <%= a.text_field :city, class: "form-control" %>
+        <%= a.text_field :county, class: "form-control" %>
+        <%= a.text_field :country, class: "form-control" %>
+        <%= a.text_field :postcode, class: "form-control" %>
+    </div>
+
+    <% end %>
+
+</div>
+
+<%= f.submit class: "btn btn-default btn-primary"%>
 
 <% end %>
