@@ -28,3 +28,12 @@ en:
         geo_location: Current Location
         linkedin: LinkedIn
         github: GitHub
+        street: Street
+        city: Town/City
+        county: County/Province
+        country: Country
+        postcode: Postcode
+
+
+  candidate:
+    create: "Create a new candidate"
