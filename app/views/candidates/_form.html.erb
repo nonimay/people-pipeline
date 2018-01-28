@@ -49,41 +49,37 @@
 
             <div class="col-md-5 col-md-offset-2">
 
-                <%= f.fields_for :address do |a| %>
-
                 <div class="form-group">
-                    <%= a.label :telephone %>
-                    <%= a.text_field :telephone, class: "form-control" %>
+                    <%= f.label :telephone %>
+                    <%= f.text_field :telephone, class: "form-control" %>
                 </div>
 
                 <div class="form-group">
-                    <%= a.label :email %>
-                    <%= a.text_field :email, class: "form-control" %>
+                    <%= f.label :email %>
+                    <%= f.text_field :email, class: "form-control" %>
                 </div>
 
                 <div class="form-group">
                     <%= f.label :address %>
-                    <%= a.text_field :street, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.street") %>
+                    <%= f.text_field :street, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.street") %>
                 </div>
 
                 <div class="form-group">
-                    <%= a.text_field :city, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.city") %>
+                    <%= f.text_field :city, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.city") %>
                 </div>
 
                 <div class="form-group">
-                    <%= a.text_field :county, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.county") %>
+                    <%= f.text_field :county, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.county") %>
                 </div>
 
                 <div class="form-group">
-                    <%= a.text_field :country, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.country") %>
+                    <%= f.text_field :country, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.country") %>
                 </div>
 
                 <div class="form-group">
-                    <%= a.text_field :postcode, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.postcode") %>
+                    <%= f.text_field :postcode, class: "form-control", placeholder: I18n.t("activerecord.attributes.candidate.postcode") %>
                 </div>
-
-                <% end %>
-
+                
             </div>
         </div>
 

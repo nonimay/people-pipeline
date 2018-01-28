@@ -1,15 +1,10 @@
 class CandidatesController < ApplicationController
-  before_action :set_candidate, only: [:show, :edit, :update, :destroy]
+  before_action :set_candidate, only: [:edit, :update]
 
   # GET /candidates
   # GET /candidates.json
   def index
     @candidates = Candidate.all
-  end
-
-  # GET /candidates/1
-  # GET /candidates/1.json
-  def show
   end
 
   # GET /candidates/new
@@ -25,39 +20,22 @@ class CandidatesController < ApplicationController
   # POST /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)
-
-    respond_to do |format|
-      if @candidate.save
-        format.html { redirect_to @candidate, notice: 'Candidate was successfully created.' }
-        format.json { render :show, status: :created, location: @candidate }
-      else
-        format.html { render :new }
-        format.json { render json: @candidate.errors, status: :unprocessable_entity }
-      end
+    if @candidate.save
+      flash[:success] = 'Candidate was successfully created.'
+      redirect_to action: "index"
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /candidates/1
   # PATCH/PUT /candidates/1.json
   def update
-    respond_to do |format|
-      if @candidate.update(candidate_params)
-        format.html { redirect_to @candidate, notice: 'Candidate was successfully updated.' }
-        format.json { render :show, status: :ok, location: @candidate }
-      else
-        format.html { render :edit }
-        format.json { render json: @candidate.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /candidates/1
-  # DELETE /candidates/1.json
-  def destroy
-    @candidate.destroy
-    respond_to do |format|
-      format.html { redirect_to candidates_url, notice: 'Candidate was successfully destroyed.' }
-      format.json { head :no_content }
+    if @candidate.update(candidate_params)
+      flash[:success] = 'Candidate was successfully updated.'
+      redirect_to action: "index"
+    else
+      render :edit
     end
   end
 
@@ -69,6 +47,6 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      params.require(:candidate).permit(:name, :geo_location, :education_id, :contact_id, :github, :linkedin)
+      params.require(:candidate).permit(:name, :geo_location, :education_id, :github, :linkedin, :email, :telephone, :street, :city, :country, :postcode)
     end
 end
