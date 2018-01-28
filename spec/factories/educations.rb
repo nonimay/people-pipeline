@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :education do
+  factory :bachelors, class: Education do
     level 1
     qualification "Bachelors Degree"
   end

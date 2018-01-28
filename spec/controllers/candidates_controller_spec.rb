@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CandidatesController, type: :controller do
   before(:all) do
-    @candidate = create(:candidate)
+    @candidate = create(:john_smith)
   end
 
   let(:valid_session) { {} }
@@ -11,13 +11,6 @@ RSpec.describe CandidatesController, type: :controller do
     it 'assigns all candidates as @candidates' do
       get :index, params: {}, session: valid_session
       expect(assigns(:candidates)).to eq([@candidate])
-    end
-  end
-
-  describe 'GET #show' do
-    it 'assigns the requested candidate as @candidate' do
-      get :show, params: { id: @candidate.to_param }, session: valid_session
-      expect(assigns(:candidate)).to eq(@candidate)
     end
   end
 
@@ -49,9 +42,14 @@ RSpec.describe CandidatesController, type: :controller do
         expect(assigns(:candidate)).to be_persisted
       end
 
-      it 'redirects to the created candidate' do
+      it 'redirects to the index page' do
         post :create, params: { candidate: @candidate.attributes }, session: valid_session
-        expect(response).to redirect_to(Candidate.last)
+        expect(response).to redirect_to(action: :index)
+      end
+
+      it 'sets flash success' do
+        post :create, params: { candidate: @candidate.attributes }, session: valid_session
+        expect(controller).to set_flash[:success]
       end
     end
 
@@ -87,9 +85,14 @@ RSpec.describe CandidatesController, type: :controller do
         expect(assigns(:candidate)).to eq(@candidate)
       end
 
-      it 'redirects to the candidate' do
+      it 'redirects to the index page' do
         put :update, params: { id: @candidate.to_param, candidate: new_attributes }, session: valid_session
-        expect(response).to redirect_to(@candidate)
+        expect(response).to redirect_to(action: :index)
+      end
+
+      it 'sets flash success' do
+        put :update, params: { id: @candidate.to_param, candidate: new_attributes }, session: valid_session
+        expect(controller).to set_flash[:success]
       end
     end
 
@@ -103,19 +106,6 @@ RSpec.describe CandidatesController, type: :controller do
         put :update, params: { id: @candidate.to_param, candidate: @candidate.attributes.merge('name' => '') }, session: valid_session
         expect(response).to render_template('edit')
       end
-    end
-  end
-
-  describe 'DELETE #destroy' do
-    it 'destroys the requested candidate' do
-      expect do
-        delete :destroy, params: { id: @candidate.to_param }, session: valid_session
-      end.to change(Candidate, :count).by(-1)
-    end
-
-    it 'redirects to the candidates list' do
-      delete :destroy, params: { id: @candidate.to_param }, session: valid_session
-      expect(response).to redirect_to(candidates_url)
     end
   end
 end
