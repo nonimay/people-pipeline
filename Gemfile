@@ -62,6 +62,6 @@ group :test do
   gem 'simplecov'
   gem 'coveralls', require: false
   gem 'database_cleaner'
-  gem 'factory_girl_rails', "~> 4.0"
+  gem 'factory_bot_rails'
   gem 'timecop'
 end

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :john_smith, class: Candidate do
     name "John Smith"
     geo_location "Newcity"
@@ -10,6 +10,6 @@ FactoryGirl.define do
     city "Newcity"
     country "UK"
     postcode "AA111AA"
-    education { FactoryGirl.create(:bachelors) }
+    education { FactoryBot.create(:bachelors) }
   end
 end
