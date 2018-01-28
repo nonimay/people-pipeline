@@ -12,5 +12,6 @@ FactoryBot.define do
     postcode "AA111AA"
     education { FactoryBot.create(:bachelors) }
     pipeline_status { FactoryBot.create(:waiting_interview) }
+    employment_status { FactoryBot.create(:employed_permanent) }
   end
 end

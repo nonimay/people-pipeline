@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128205847) do
+ActiveRecord::Schema.define(version: 20180128213336) do
 
   create_table "candidates", force: :cascade do |t|
     t.string   "name"
@@ -22,13 +22,15 @@ ActiveRecord::Schema.define(version: 20180128205847) do
     t.string   "county"
     t.string   "country"
     t.string   "postcode"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "education_id"
     t.string   "linkedin"
     t.string   "github"
     t.integer  "pipeline_status_id"
+    t.integer  "employment_status_id"
     t.index ["education_id"], name: "index_candidates_on_education_id"
+    t.index ["employment_status_id"], name: "index_candidates_on_employment_status_id"
     t.index ["pipeline_status_id"], name: "index_candidates_on_pipeline_status_id"
   end
 
@@ -37,6 +39,12 @@ ActiveRecord::Schema.define(version: 20180128205847) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "qualification"
+  end
+
+  create_table "employment_statuses", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pipeline_statuses", force: :cascade do |t|
