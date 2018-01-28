@@ -20,3 +20,8 @@ PipelineStatus.create(status: "Currently unsuitable")
 PipelineStatus.create(status: "Declined offer")
 PipelineStatus.create(status: "Waiting for opportunity")
 PipelineStatus.create(status: "Employed")
+
+#employment statuses
+EmploymentStatus.create(status: "Employed - Permanent")
+EmploymentStatus.create(status: "Employed - Contractor")
+EmploymentStatus.create(status: "Unemployed")
