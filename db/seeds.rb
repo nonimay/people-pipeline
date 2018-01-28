@@ -10,3 +10,13 @@ Education.create(level: 5, qualification: "HNC / HND")
 Education.create(level: 6, qualification: "A-level")
 Education.create(level: 7, qualification: "GCSE (grades A*–C)")
 Education.create(level: 8, qualification: "GCSE (grades D-G)")
+
+#pipeline statuses
+PipelineStatus.create(status: "Uncontacted")
+PipelineStatus.create(status: "Arranging interview")
+PipelineStatus.create(status: "Waiting for interview")
+PipelineStatus.create(status: "Interviewed")
+PipelineStatus.create(status: "Currently unsuitable")
+PipelineStatus.create(status: "Declined offer")
+PipelineStatus.create(status: "Waiting for opportunity")
+PipelineStatus.create(status: "Employed")

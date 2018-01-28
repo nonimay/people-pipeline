@@ -11,5 +11,6 @@ FactoryBot.define do
     country "UK"
     postcode "AA111AA"
     education { FactoryBot.create(:bachelors) }
+    pipeline_status { FactoryBot.create(:waiting_interview) }
   end
 end
