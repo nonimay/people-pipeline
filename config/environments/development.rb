@@ -51,4 +51,13 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Logstash.new
+  config.lograge.custom_options = lambda do |event|
+    {
+      exception: event.payload[:exception], # ["ExceptionClass", "the message"]
+      exception_object: event.payload[:exception_object] # the exception instance
+    }
+  end
 end
